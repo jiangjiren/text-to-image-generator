@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 文本生成图像</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <h1>AI 文本生成图像</h1>
+        </header>
+        
+        <main>
+            <!-- 左侧设置区域 -->
+            <div class="settings-panel">
+                <div class="input-area">
+                    <label for="promptInput">提示词</label>
+                    <textarea id="promptInput" rows="4" placeholder="例如：一只戴着宇航员头盔的猫在月球上冲浪"></textarea>
+                </div>
+                
+                <div class="image-settings">
+                    
+                    <div class="setting-group">
+                        <label>图片比例</label>
+                        <div class="aspect-ratio-options">
+                            <button class="aspect-ratio-btn" data-width="1328" data-height="1328" data-ratio="1:1">1:1</button>
+                            <button class="aspect-ratio-btn" data-width="1024" data-height="1365" data-ratio="3:4">3:4</button>
+                            <button class="aspect-ratio-btn" data-width="1365" data-height="1024" data-ratio="4:3">4:3</button>
+                            <button class="aspect-ratio-btn" data-width="1024" data-height="1792" data-ratio="9:16">9:16</button>
+                            <button class="aspect-ratio-btn" data-width="1792" data-height="1024" data-ratio="16:9">16:9</button>
+                            <button class="aspect-ratio-btn" data-width="1328" data-height="664" data-ratio="2:1">2:1</button>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label>自定义尺寸</label>
+                        <div class="custom-size">
+                            <div class="size-input">
+                                <label for="widthInput">宽度</label>
+                                <input type="number" id="widthInput" min="512" max="2048" step="8" value="1328">
+                            </div>
+                            <div class="size-input">
+                                <label for="heightInput">高度</label>
+                                <input type="number" id="heightInput" min="512" max="2048" step="8" value="1328">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="generateButton" class="primary-btn">生成图片</button>
+                
+                <div id="loadingIndicator" class="loading" style="display: none;">
+                    正在生成图片，请稍候...
+                </div>
+                
+                <div id="errorDisplay" class="error-message" style="display: none;">
+                    <!-- 错误信息将显示在这里 -->
+                </div>
+            </div>
+            
+            <!-- 右侧图片显示区域 -->
+            <div class="display-panel">
+                <div class="image-gallery" id="imageGallery">
+                    <!-- 生成的图片将显示在这里 -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by 火山引擎 API &amp; Cascade AI</p>
+        </footer>
+    </div>
+
+    <!-- CryptoJS for SHA256 and HMAC-SHA256 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
