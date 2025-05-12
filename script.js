@@ -5,9 +5,9 @@
 // 此处仅为演示目的。
 // ----------------------------------------------------------------------------
 
-// 请替换为你的 Access Key ID 和 Secret Access Key
-const AK = 'YOUR_ACCESS_KEY_ID';       // 替换成你的 Access Key ID
-const SK = 'YOUR_SECRET_ACCESS_KEY';  // 替换成你的 Secret Access Key
+// 从环境变量中获取API密钥
+const AK = process.env.VOLCANO_AK || 'YOUR_ACCESS_KEY_ID';
+const SK = process.env.VOLCANO_SK || 'YOUR_SECRET_ACCESS_KEY';
 
 const API_HOST = 'visual.volcengineapi.com';
 const API_SERVICE = 'cv';
